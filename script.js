@@ -43,13 +43,26 @@ toggleBtn.addEventListener("click", () => {
   }
 });
 
-// 🔽 Défilement vers la section "À propos"
+// 🔽 Flèche : scroll vers "À propos" et disparition
 const scrollArrow = document.getElementById("scroll-arrow");
-if (scrollArrow) {
+const scrollDown = document.querySelector(".scroll-down");
+
+if (scrollArrow && scrollDown) {
+  // Clique sur la flèche → scroll + disparition
   scrollArrow.addEventListener("click", () => {
     const aboutSection = document.getElementById("about");
     if (aboutSection) {
       aboutSection.scrollIntoView({ behavior: "smooth" });
+    }
+    scrollDown.classList.add("hidden");
+  });
+
+  // Disparaît si on commence à scroller
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 50) {
+      scrollDown.classList.add("hidden");
+    } else {
+      scrollDown.classList.remove("hidden");
     }
   });
 }
