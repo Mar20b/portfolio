@@ -8,15 +8,57 @@
 
 body {
   font-family: "Inter", sans-serif;
-  color: #f4f4f4;
-  background-color: #0f0f0f;
   line-height: 1.6;
+  transition: background-color 0.4s, color 0.4s;
+}
+
+/* 🌗 Thèmes : par défaut on suit les préférences système */
+:root {
+  --bg-color: #ffffff;
+  --text-color: #1c1c1c;
+  --card-bg: #f3f3f3;
+  --accent: #0077ff;
+  --nav-bg: #e6e6e6;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-color: #0f0f0f;
+    --text-color: #f4f4f4;
+    --card-bg: #1a1a1a;
+    --accent: #61dafb;
+    --nav-bg: #181818;
+  }
+}
+
+/* 🌓 Mode forcé (appliqué via JS) */
+body.light-theme {
+  --bg-color: #ffffff;
+  --text-color: #1c1c1c;
+  --card-bg: #f3f3f3;
+  --accent: #0077ff;
+  --nav-bg: #e6e6e6;
+}
+
+body.dark-theme {
+  --bg-color: #0f0f0f;
+  --text-color: #f4f4f4;
+  --card-bg: #1a1a1a;
+  --accent: #61dafb;
+  --nav-bg: #181818;
+}
+
+/* 🧱 Styles généraux */
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
 }
 
 header {
   text-align: center;
   padding: 4rem 1rem;
-  background: linear-gradient(135deg, #181818, #1f1f1f);
+  background-color: var(--nav-bg);
+  position: relative;
 }
 
 header h1 {
@@ -25,13 +67,14 @@ header h1 {
 }
 
 header p {
-  color: #aaa;
+  color: var(--text-color);
+  opacity: 0.8;
   margin-bottom: 1rem;
 }
 
 nav a {
   margin: 0 1rem;
-  color: #61dafb;
+  color: var(--accent);
   text-decoration: none;
   font-weight: 600;
 }
@@ -40,10 +83,37 @@ nav a:hover {
   text-decoration: underline;
 }
 
+/* Bouton mode sombre/clair */
+#theme-toggle {
+  position: absolute;
+  top: 1.2rem;
+  right: 1.2rem;
+  background: var(--accent);
+  border: none;
+  color: #000;
+  font-size: 1.2rem;
+  padding: 0.5rem 0.7rem;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+#theme-toggle:hover {
+  transform: rotate(15deg);
+}
+
 section {
   padding: 4rem 1rem;
   max-width: 1000px;
   margin: auto;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease;
+}
+
+section.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 h2 {
@@ -59,10 +129,10 @@ h2 {
 }
 
 .project-card {
-  background: #1a1a1a;
+  background: var(--card-bg);
   border-radius: 10px;
   overflow: hidden;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
   transition: transform 0.2s;
 }
 
@@ -81,22 +151,18 @@ h2 {
 
 .project-card p {
   margin: 0 1rem 1rem;
-  color: #ccc;
+  opacity: 0.9;
 }
 
 .project-card a {
   display: inline-block;
   margin: 0 1rem 1rem;
   padding: 0.5rem 1rem;
-  background-color: #61dafb;
+  background-color: var(--accent);
   color: #000;
   border-radius: 5px;
   text-decoration: none;
   font-weight: 600;
-}
-
-.project-card a:hover {
-  background-color: #4fc3e6;
 }
 
 ul {
@@ -111,18 +177,8 @@ ul li {
 footer {
   text-align: center;
   padding: 2rem;
-  background-color: #181818;
-  color: #888;
+  background-color: var(--nav-bg);
+  color: var(--text-color);
+  opacity: 0.7;
   font-size: 0.9rem;
-}
-
-section {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: all 0.6s ease;
-}
-
-section.visible {
-  opacity: 1;
-  transform: translateY(0);
 }
