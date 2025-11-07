@@ -182,3 +182,41 @@ footer {
   opacity: 0.7;
   font-size: 0.9rem;
 }
+
+/* 🔽 Flèche de défilement sous le header */
+.scroll-down {
+  position: absolute;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  cursor: pointer;
+  animation: bounce 2s infinite;
+}
+
+.scroll-down img {
+  width: 40px;
+  height: 40px;
+  opacity: 0.8;
+  transition: opacity 0.3s;
+}
+
+.scroll-down img:hover {
+  opacity: 1;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translate(-50%, 0);
+  }
+  40% {
+    transform: translate(-50%, 10px);
+  }
+  60% {
+    transform: translate(-50%, 5px);
+  }
+}
+
+/* 💨 Défilement fluide */
+html {
+  scroll-behavior: smooth;
+}

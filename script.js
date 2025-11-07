@@ -1,4 +1,4 @@
-// Apparition au scroll
+// 🌙 Apparition au scroll
 document.addEventListener("scroll", () => {
   const elements = document.querySelectorAll("section");
   const triggerBottom = window.innerHeight * 0.8;
@@ -11,7 +11,7 @@ document.addEventListener("scroll", () => {
   });
 });
 
-// Thème sombre/clair automatique + bouton de bascule
+// 🌗 Thème sombre/clair automatique + bouton de bascule
 const toggleBtn = document.getElementById("theme-toggle");
 const userTheme = localStorage.getItem("theme");
 
@@ -42,3 +42,14 @@ toggleBtn.addEventListener("click", () => {
     }
   }
 });
+
+// 🔽 Défilement vers la section "À propos"
+const scrollArrow = document.getElementById("scroll-arrow");
+if (scrollArrow) {
+  scrollArrow.addEventListener("click", () => {
+    const aboutSection = document.getElementById("about");
+    if (aboutSection) {
+      aboutSection.scrollIntoView({ behavior: "smooth" });
+    }
+  });
+}
