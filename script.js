@@ -1,4 +1,3 @@
-// ...existing code...
 // 🌙 Apparition au scroll
 document.addEventListener("scroll", () => {
   const elements = document.querySelectorAll("section");
