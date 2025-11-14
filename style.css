@@ -34,11 +34,11 @@ body {
 
 /* 🌓 Mode forcé (appliqué via JS) */
 body.light-theme {
-  --bg-color: #f3f0eb;
+  --bg-color: #f0f0f0;
   --text-color: #1c1c1c;
-  --card-bg: #f1e1e1;
-  --accent: #0077ff;
-  --nav-bg: #e7dfdc;
+  --card-bg: #dde6e5;
+  --accent: #00b7ff;
+  --nav-bg: #dce7e6;
 }
 
 body.dark-theme {
@@ -158,12 +158,23 @@ h2 {
   letter-spacing: -0.5px;
 }
 
-p {
-  text-align: center;
+h3 {
+  font-size: 1.5rem;
   margin-bottom: 2rem;
-  font-size: 1.125rem; /* ~18px */
-  line-height: 1.75;
+  text-align: center;
+}
+
+h4 {
+  font-size: 1.3rem;
+  margin-bottom: 3rem;
+  font-weight: 400;
   color: var(--text-color);
+  opacity: 0.85;
+}
+
+p {
+  font-size: 1rem;
+  text-align: left;
 }
 
 .projects-grid {
@@ -598,7 +609,7 @@ body.light-theme .canvas:hover::before {
 }
 
 /* =========================
-   Card
+   Card à propos
    ========================= */
 .card {
   font-weight: bold;
@@ -611,7 +622,7 @@ body.light-theme .canvas:hover::before {
   box-shadow: 0 1px 5px #00000099;
   
   border-radius: 15px;
-  background-size: cover;
+  background-position: top;
   
   position: relative;
   margin: 0 auto;
@@ -622,9 +633,77 @@ body.light-theme .canvas:hover::before {
   transform: rotate3d(0);
 }
 
-.card:hover {
-  transition-duration: 150ms;
-  box-shadow: 0 5px 20px 5px #00000044;
+.card img {
+  width: 100%;
+  object-fit: contain;
+  position: absolute;
+  top: 0;
+}
+
+/* section lycée */
+.lycee {
+  width: 19%;
+  height: 35%;
+  position: absolute;
+  z-index: 2;
+  padding: 0.5rem;
+  border-radius: 36px;
+  top : 9.2rem;
+  left: 9.8rem;
+}
+
+body.dark-theme .lycee{
+  background-color: #32303a7c;
+  color: #f1f1f1;
+}
+
+body.light-theme .lycee{
+  background-color: #cdcecf7c;
+  color: #000000;
+}
+
+/* section icssa */
+.icssa {
+  width: 19%;
+  height: 35%;
+  position: absolute;
+  z-index: 2;
+  padding: 0.5rem;
+  border-radius: 36px;
+  top : 9.2rem;
+  left: 24rem;
+}
+
+body.dark-theme .icssa{
+  background-color: #32303a7c;
+  color: #f1f1f1;
+}
+
+body.light-theme .icssa{
+  background-color: #cdcecf7c;
+  color: #000000;
+}
+
+/* section après */
+.apres {
+  width: 19%;
+  height: 35%;
+  position: absolute;
+  z-index: 2;
+  padding: 0.5rem;
+  border-radius: 36px;
+  top : 9.2rem;
+  left: 38.38rem;
+}
+
+body.dark-theme .apres{
+  background-color: #32303a7c;
+  color: #f1f1f1;
+}
+
+body.light-theme .apres{
+  background-color: #cdcecf7c;
+  color: #000000;
 }
 
 body.dark-theme .card {
