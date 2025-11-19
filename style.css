@@ -719,6 +719,20 @@ body.light-theme .card {
 }
 
 /* =========================
+   Frise chronologique
+   ========================= */
+
+.fleche {
+  position: absolute;
+  margin-left: 8%;
+}
+
+.text-about {
+  position: relative;
+  height: 68rem;
+}
+
+/* =========================
    Toggle Switch for Dark/Light Mode
    ========================= */
 
